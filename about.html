@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Real Ratlami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f4ffe0 0%, #ffffff 50%, #fffde0 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --green: #8ecc09;
+            --dark-green: #5a8c00;
+            --yellow: #f5d800;
+            --black: #111;
+            --white: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.15;
+        }
+
+        .logo-the-real {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--yellow);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-ratlami {
+            font-family: 'Teko', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            font-weight: 600;
+            color: var(--dark-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--green);
+            transform: translateX(-5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .hero h1 .green {
+            color: var(--green);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 40px 0 80px;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1.5px solid #e2f5b0;
+        }
+
+        .content-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .content-header h2 {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            color: #111;
+            margin-bottom: 15px;
+        }
+
+        .content-header p {
+            color: #777;
+            font-size: 16px;
+        }
+
+        .content-block {
+            margin-bottom: 40px;
+        }
+
+        .content-block h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+
+        .content-block p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: #f8fff0;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            border: 1.5px solid #daf090;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(142, 204, 9, 0.15);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-family: 'Teko', sans-serif;
+            font-size: 24px;
+            color: white;
+        }
+
+        .value-card h4 {
+            font-family: 'Teko', sans-serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #888;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.15;
+        }
+
+        .footer-logo-the {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--yellow);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-logo-name {
+            font-family: 'Teko', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #444;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 30px 20px;
+            }
+
+            .hero {
+                padding: 60px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="the_real_ratlami_clean.html" class="logo">
+                    <div class="logo-badge">
+                        <span class="logo-the-real">The Real</span>
+                        <span class="logo-ratlami">RATLAMI</span>
+                    </div>
+                </a>
+                <a href="the_real_ratlami_clean.html" class="back-link">
+                    <span>←</span> Back to Main Page
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>OUR <span class="green">STORY</span></h1>
+            <p>Discover the authentic taste of Ratlam through our journey of bringing real, desi flavors to every household.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-container">
+                <div class="content-header">
+                    <h2>THE REAL RATLAMI JOURNEY</h2>
+                    <p>From the heart of Madhya Pradesh to bottles across India</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Our Beginnings</h3>
+                    <p>The Real Ratlami was born from a simple idea: to bring the authentic taste of Ratlam to every home across India. Founded in the historic city of Ratlam, Madhya Pradesh, our journey began with a passion for preserving traditional Indian flavors in a modern, accessible format.</p>
+                    <p>Inspired by the bustling markets and vibrant street food culture of Ratlam, we set out to create beverages that capture the essence of desi taste - bold, refreshing, and unmistakably Indian.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Our Philosophy</h3>
+                    <p>We believe that great taste comes from great ingredients. That's why we source only the finest, real ingredients for our beverages. From premium zeera seeds to fresh fruit essences, every component is carefully selected to ensure the authentic taste that defines The Real Ratlami.</p>
+                    <p>Our manufacturing process combines traditional techniques with modern quality standards, ensuring that every bottle delivers the same consistent, delicious experience that has made us a household name.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Our Values</h3>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">A</div>
+                            <h4>Authenticity</h4>
+                            <p>Preserving traditional Indian flavors and recipes</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">Q</div>
+                            <h4>Quality</h4>
+                            <p>Maintaining the highest standards in production</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">A</div>
+                            <h4>Affordability</h4>
+                            <p>Making premium taste accessible to everyone</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">S</div>
+                            <h4>Sustainability</h4>
+                            <p>Responsible manufacturing and packaging</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>Looking Forward</h3>
+                    <p>As we continue to grow, our commitment to authentic taste and quality remains unwavering. We're constantly innovating to bring new flavors while staying true to our roots, and expanding our reach to bring the taste of Ratlam to more households across India.</p>
+                    <p>Our vision is to become India's most beloved desi beverage brand, recognized for our commitment to quality, authenticity, and the unique flavors that make us who we are.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="the_real_ratlami_clean.html" class="footer-logo">
+                    <div class="footer-logo-badge">
+                        <span class="footer-logo-the">The Real</span>
+                        <span class="footer-logo-name">RATLAMI</span>
+                    </div>
+                </a>
+                <p>Made with carefully selected desi ingredients, The Real Ratlami delivers bold flavour, perfect fizz, and trusted quality in every sip.</p>
+            </div>
+            <div class="copyright">
+                <p>2026 The Real Ratlami. All rights reserved.</p>
+                <p>Made with care in Ratlam, India</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

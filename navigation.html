@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation - The Real Ratlami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f4ffe0 0%, #ffffff 50%, #fffde0 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --green: #8ecc09;
+            --dark-green: #5a8c00;
+            --yellow: #f5d800;
+            --black: #111;
+            --white: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.15;
+        }
+
+        .logo-the-real {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--yellow);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-ratlami {
+            font-family: 'Teko', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            font-weight: 600;
+            color: var(--dark-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--green);
+            transform: translateX(-5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .hero h1 .green {
+            color: var(--green);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Navigation Section */
+        .nav-section {
+            padding: 40px 0 80px;
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .nav-header h2 {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            color: #111;
+            margin-bottom: 15px;
+        }
+
+        .nav-header p {
+            color: #777;
+            font-size: 16px;
+        }
+
+        .nav-category {
+            margin-bottom: 40px;
+        }
+
+        .nav-category h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--green);
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-link {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1.5px solid #e2f5b0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #111;
+            display: block;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(142, 204, 9, 0.15);
+            border-color: var(--green);
+        }
+
+        .nav-link h4 {
+            font-family: 'Teko', sans-serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+
+        .nav-link p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .nav-link .link-btn {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover .link-btn {
+            background: var(--dark-green);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #888;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.15;
+        }
+
+        .footer-logo-the {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--yellow);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-logo-name {
+            font-family: 'Teko', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #444;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-badge">
+                        <span class="logo-the-real">The Real</span>
+                        <span class="logo-ratlami">RATLAMI</span>
+                    </div>
+                </a>
+                <a href="index.html" class="back-link">
+                    <span>←</span> Back to Main Page
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>WEBSITE <span class="green">NAVIGATION</span></h1>
+            <p>Explore all pages of The Real Ratlami website</p>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="nav-section">
+        <div class="container">
+            <div class="nav-container">
+                <div class="nav-header">
+                    <h2>ALL PAGES</h2>
+                    <p>Complete navigation guide for The Real Ratlami website</p>
+                </div>
+
+                <!-- Main Pages -->
+                <div class="nav-category">
+                    <h3>MAIN PAGES</h3>
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link">
+                            <h4>Home Page</h4>
+                            <p>Main landing page with all sections</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="about.html" class="nav-link">
+                            <h4>About Us</h4>
+                            <p>Brand story, mission, and values</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="inquiry.html" class="nav-link">
+                            <h4>Contact/Inquiry</h4>
+                            <p>Get in touch with our team</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="faq.html" class="nav-link">
+                            <h4>FAQ</h4>
+                            <p>Frequently asked questions</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Pages -->
+                <div class="nav-category">
+                    <h3>PRODUCT PAGES</h3>
+                    <div class="nav-links">
+                        <a href="product-lychee.html" class="nav-link">
+                            <h4>Ratlami Lychee</h4>
+                            <p>Tropical lychee with a fizzy desi kick</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-mojito.html" class="nav-link">
+                            <h4>Ratlami Mojito</h4>
+                            <p>Fresh lime-mint fizz with an authentic desi twist</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-blueberry.html" class="nav-link">
+                            <h4>Ratlami Blueberry</h4>
+                            <p>Bold blueberry burst with sparkling fizz</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-nimbu-masala.html" class="nav-link">
+                            <h4>Ratlami Nimbu Masala</h4>
+                            <p>Tangy lemon with chatpata masala spices</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-zeera.html" class="nav-link">
+                            <h4>Ratlami Zeera</h4>
+                            <p>Bold cumin soda with desi spices</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SEO Resources -->
+                <div class="nav-category">
+                    <h3>SEO RESOURCES</h3>
+                    <div class="nav-links">
+                        <a href="robots.txt" class="nav-link">
+                            <h4>Robots.txt</h4>
+                            <p>Search engine crawler instructions</p>
+                            <span class="link-btn">View File</span>
+                        </a>
+
+                        <a href="sitemap.xml" class="nav-link">
+                            <h4>Sitemap.xml</h4>
+                            <p>Website structure for search engines</p>
+                            <span class="link-btn">View File</span>
+                        </a>
+
+                        <a href="structured-data.jsonld" class="nav-link">
+                            <h4>Structured Data</h4>
+                            <p>Schema.org markup for rich results</p>
+                            <span class="link-btn">View File</span>
+                        </a>
+
+                        <a href="seo-hub.html" class="nav-link">
+                            <h4>SEO Hub</h4>
+                            <p>Central hub for SEO resources</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo">
+                    <div class="footer-logo-badge">
+                        <span class="footer-logo-the">The Real</span>
+                        <span class="footer-logo-name">RATLAMI</span>
+                    </div>
+                </a>
+                <p>Made with carefully selected desi ingredients, The Real Ratlami delivers bold flavour, perfect fizz, and trusted quality in every sip.</p>
+            </div>
+            <div class="copyright">
+                <p>2026 The Real Ratlami. All rights reserved.</p>
+                <p>Made with care in Ratlam, India</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

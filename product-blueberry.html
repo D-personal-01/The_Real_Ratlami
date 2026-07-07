@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratlami Blueberry - The Real Ratlami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f4ffe0 0%, #ffffff 50%, #fffde0 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --green: #8ecc09;
+            --dark-green: #5a8c00;
+            --yellow: #f5d800;
+            --black: #111;
+            --white: #fff;
+            --blue: #4f7fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.15;
+        }
+
+        .logo-the-real {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--yellow);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-ratlami {
+            font-family: 'Teko', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            font-weight: 600;
+            color: var(--dark-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--green);
+            transform: translateX(-5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .hero h1 .flavor {
+            color: var(--blue);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 40px 0 80px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-image {
+            text-align: center;
+        }
+
+        .bottle-img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+            border-radius: 10px;
+        }
+
+        .product-details {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1.5px solid #e2f5b0;
+        }
+
+        .product-header {
+            margin-bottom: 30px;
+        }
+
+        .product-header h2 {
+            font-family: 'Teko', sans-serif;
+            font-size: 42px;
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .product-header h2 .flavor {
+            color: var(--blue);
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .product-meta {
+            margin-bottom: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .meta-value {
+            color: #777;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 40px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(142, 204, 9, 0.3);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(142, 204, 9, 0.4);
+        }
+
+        /* Ingredients Section */
+        .ingredients-section {
+            background: #f8fff0;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1.5px solid #daf090;
+        }
+
+        .ingredients-section h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            color: #111;
+            margin-bottom: 20px;
+        }
+
+        .ingredients-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .ingredient {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .ingredient-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-family: 'Teko', sans-serif;
+            font-size: 20px;
+            color: white;
+        }
+
+        .ingredient-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #888;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.15;
+        }
+
+        .footer-logo-the {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--yellow);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-logo-name {
+            font-family: 'Teko', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #444;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-details {
+                padding: 30px 20px;
+            }
+
+            .hero {
+                padding: 60px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="the_real_ratlami_clean.html" class="logo">
+                    <div class="logo-badge">
+                        <span class="logo-the-real">The Real</span>
+                        <span class="logo-ratlami">RATLAMI</span>
+                    </div>
+                </a>
+                <a href="the_real_ratlami_clean.html#products" class="back-link">
+                    <span>←</span> Back to Products
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>RATLAMI <span class="flavor">BLUEBERRY</span></h1>
+            <p>Bold blueberry burst with sparkling fizz. Vibrant, cool, refreshing.</p>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-image">
+                    <img src="/mnt/user-data/uploads/1779545141569.png" alt="Ratlami Blueberry" class="bottle-img" onerror="this.style.opacity=0.3">
+                </div>
+                <div class="product-details">
+                    <div class="product-header">
+                        <span class="tag">NEW</span>
+                        <h2>RATLAMI <span class="flavor">BLUEBERRY</span></h2>
+                        <div class="price">₹10<small>/ bottle</small></div>
+                        <p class="description">Experience the bold and vibrant taste of fresh blueberries with our Ratlami Blueberry. This rich, fruity flavor combined with perfect fizz creates a refreshing drink that's both satisfying and revitalizing.</p>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Flavor Profile:</span>
+                            <span class="meta-value">Bold & Vibrant</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Net Quantity:</span>
+                            <span class="meta-value">160ml</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Best Before:</span>
+                            <span class="meta-value">12 months from packaging</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Storage:</span>
+                            <span class="meta-value">Store in cool & dry place</span>
+                        </div>
+                    </div>
+
+                    <a href="inquiry.html" class="btn-primary">ORDER NOW</a>
+
+                    <div class="ingredients-section">
+                        <h3>KEY INGREDIENTS</h3>
+                        <div class="ingredients-list">
+                            <div class="ingredient">
+                                <div class="ingredient-icon">B</div>
+                                <div class="ingredient-name">Blueberry Essence</div>
+                            </div>
+                            <div class="ingredient">
+                                <div class="ingredient-icon">S</div>
+                                <div class="ingredient-name">Sugar</div>
+                            </div>
+                            <div class="ingredient">
+                                <div class="ingredient-icon">C</div>
+                                <div class="ingredient-name">Carbonated Water</div>
+                            </div>
+                            <div class="ingredient">
+                                <div class="ingredient-icon">N</div>
+                                <div class="ingredient-name">Natural Flavors</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="the_real_ratlami_clean.html" class="footer-logo">
+                    <div class="footer-logo-badge">
+                        <span class="footer-logo-the">The Real</span>
+                        <span class="footer-logo-name">RATLAMI</span>
+                    </div>
+                </a>
+                <p>Made with carefully selected desi ingredients, The Real Ratlami delivers bold flavour, perfect fizz, and trusted quality in every sip.</p>
+            </div>
+            <div class="copyright">
+                <p>2026 The Real Ratlami. All rights reserved.</p>
+                <p>Made with care in Ratlam, India</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

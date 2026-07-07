@@ -1,0 +1,74 @@
+User-agent: *
+Disallow:
+
+# Sitemap
+Sitemap: https://www.therealratlami.com/sitemap.xml
+
+# Crawl-delay for all bots
+Crawl-delay: 10
+
+# Specific directories and files to exclude
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /cgi-bin/
+Disallow: /includes/
+Disallow: /scripts/
+Disallow: /config/
+
+# Specific files to exclude
+Disallow: /README.md
+Disallow: /LICENSE.txt
+Disallow: /composer.json
+Disallow: /package.json
+Disallow: /webpack.config.js
+
+# Allow access to important directories
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /assets/
+
+# Important pages for SEO
+Allow: /the_real_ratlami_clean.html
+Allow: /inquiry.html
+
+# Specify user agents for specific rules
+User-agent: Googlebot
+Disallow:
+Crawl-delay: 5
+
+User-agent: Bingbot
+Disallow:
+Crawl-delay: 10
+
+User-agent: DuckDuckBot
+Disallow:
+Crawl-delay: 15
+
+# Host directive
+Host: www.therealratlami.com
+
+# Prevent URL parameters from being crawled unnecessarily
+Disallow: /*?
+Disallow: /*&
+
+# Prevent crawling of print versions
+Disallow: /*print=
+
+# Prevent crawling of tracking parameters
+Disallow: /*utm_*=
+
+# Prevent crawling of session IDs
+Disallow: /*PHPSESSID=
+Disallow: /*JSESSIONID=
+Disallow: /*ASPSESSIONID=
+
+# Prevent crawling of search result pages
+Disallow: /search?
+Disallow: /search/
+
+# Prevent crawling of filter parameters
+Disallow: /*filter=
+Disallow: /*sort=
