@@ -3,21 +3,27 @@
   "@graph": [
     {
       "@type": "Organization",
+      "@id": "https://www.therealratlami.com/#organization",
       "name": "The Real Ratlami",
       "url": "https://www.therealratlami.com",
       "logo": "https://www.therealratlami.com/images/logo.png",
-      "description": "Authentic Indian soft drink brand offering five legendary flavors made with real ingredients from Ratlam, Madhya Pradesh.",
+      "description": "The Real Ratlami is an Indian beverage brand offering authentic desi soft drinks inspired by the bold flavors of Ratlam. Crafted with quality ingredients, our drinks deliver refreshing taste at an affordable price.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ratlam",
         "addressRegion": "Madhya Pradesh",
-        "addressCountry": "India"
+        "addressCountry": "IN"
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-98765-43210",
-        "contactType": "Customer Service",
-        "email": "info@therealratlami.com"
+        "contactType": "Customer Support",
+        "email": "info@therealratlami.com",
+        "areaServed": "IN",
+        "availableLanguage": [
+          "English",
+          "Hindi"
+        ]
       },
       "sameAs": [
         "https://www.facebook.com/therealratlami",
@@ -25,21 +31,24 @@
         "https://twitter.com/therealratlami"
       ]
     },
+
     {
       "@type": "WebSite",
-      "name": "The Real Ratlami",
+      "@id": "https://www.therealratlami.com/#website",
       "url": "https://www.therealratlami.com",
-      "description": "India Ka Desi Thanda - Five legendary flavours. One authentic brand. Made in the spirit of Ratlam — bold, real, and refreshingly desi.",
+      "name": "The Real Ratlami",
+      "description": "India Ka Desi Thanda. Authentic Indian beverages inspired by Ratlam with refreshing flavors for everyone.",
       "publisher": {
-        "@type": "Organization",
-        "name": "The Real Ratlami"
-      }
+        "@id": "https://www.therealratlami.com/#organization"
+      },
+      "inLanguage": "en-IN"
     },
+
     {
       "@type": "Product",
       "name": "Ratlami Lychee",
-      "image": "https://www.therealratlami.com/images/lychee.png",
-      "description": "Tropical lychee with a fizzy desi kick. Sweet, juicy, irresistible.",
+      "image": "https://www.therealratlami.com/images/products/placeholder.png",
+      "description": "Sweet tropical lychee drink with authentic Indian taste.",
       "brand": {
         "@type": "Brand",
         "name": "The Real Ratlami"
@@ -48,16 +57,16 @@
         "@type": "Offer",
         "price": "10",
         "priceCurrency": "INR",
-        "priceValidUntil": "2027-12-31",
         "availability": "https://schema.org/InStock",
-        "url": "https://www.therealratlami.com/the_real_ratlami_clean.html#products"
+        "url": "https://www.therealratlami.com/#products"
       }
     },
+
     {
       "@type": "Product",
       "name": "Ratlami Mojito",
-      "image": "https://www.therealratlami.com/images/mojito.png",
-      "description": "Fresh lime-mint fizz with an authentic desi twist. The classic refresher.",
+      "image": "https://www.therealratlami.com/images/products/placeholder.png",
+      "description": "Refreshing lime and mint beverage with a desi twist.",
       "brand": {
         "@type": "Brand",
         "name": "The Real Ratlami"
@@ -66,16 +75,16 @@
         "@type": "Offer",
         "price": "10",
         "priceCurrency": "INR",
-        "priceValidUntil": "2027-12-31",
         "availability": "https://schema.org/InStock",
-        "url": "https://www.therealratlami.com/the_real_ratlami_clean.html#products"
+        "url": "https://www.therealratlami.com/#products"
       }
     },
+
     {
       "@type": "Product",
       "name": "Ratlami Blueberry",
-      "image": "https://www.therealratlami.com/images/blueberry.png",
-      "description": "Bold blueberry burst with sparkling fizz. Vibrant, cool, refreshing.",
+      "image": "https://www.therealratlami.com/images/products/placeholder.png",
+      "description": "Bold blueberry flavored beverage with refreshing taste.",
       "brand": {
         "@type": "Brand",
         "name": "The Real Ratlami"
@@ -84,16 +93,16 @@
         "@type": "Offer",
         "price": "10",
         "priceCurrency": "INR",
-        "priceValidUntil": "2027-12-31",
         "availability": "https://schema.org/InStock",
-        "url": "https://www.therealratlami.com/the_real_ratlami_clean.html#products"
+        "url": "https://www.therealratlami.com/#products"
       }
     },
+
     {
       "@type": "Product",
       "name": "Ratlami Nimbu Masala",
-      "image": "https://www.therealratlami.com/images/nimbu-masala.png",
-      "description": "Tangy lemon with chatpata masala spices. The ultimate desi combo.",
+      "image": "https://www.therealratlami.com/images/products/placeholder.png",
+      "description": "Tangy lemon beverage blended with traditional Indian masala.",
       "brand": {
         "@type": "Brand",
         "name": "The Real Ratlami"
@@ -102,16 +111,16 @@
         "@type": "Offer",
         "price": "10",
         "priceCurrency": "INR",
-        "priceValidUntil": "2027-12-31",
         "availability": "https://schema.org/InStock",
-        "url": "https://www.therealratlami.com/the_real_ratlami_clean.html#products"
+        "url": "https://www.therealratlami.com/#products"
       }
     },
+
     {
       "@type": "Product",
       "name": "Ratlami Zeera",
-      "image": "https://www.therealratlami.com/images/zeera.png",
-      "description": "Bold cumin soda with desi spices. The original Indian digestive drink.",
+      "image": "https://www.therealratlami.com/images/products/placeholder.png",
+      "description": "Classic cumin flavored Indian soft drink with authentic desi spices.",
       "brand": {
         "@type": "Brand",
         "name": "The Real Ratlami"
@@ -120,22 +129,42 @@
         "@type": "Offer",
         "price": "10",
         "priceCurrency": "INR",
-        "priceValidUntil": "2027-12-31",
         "availability": "https://schema.org/InStock",
-        "url": "https://www.therealratlami.com/the_real_ratlami_clean.html#products"
+        "url": "https://www.therealratlami.com/#products"
       }
     },
+
+    {
+      "@type": "Product",
+      "name": "Ratlami Mango",
+      "image": "https://www.therealratlami.com/images/products/placeholder.png",
+      "description": "Refreshing mango beverage made with authentic Indian flavor.",
+      "brand": {
+        "@type": "Brand",
+        "name": "The Real Ratlami"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "10",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.therealratlami.com/#products"
+      }
+    },
+
     {
       "@type": "LocalBusiness",
+      "@id": "https://www.therealratlami.com/#business",
       "name": "The Real Ratlami",
       "image": "https://www.therealratlami.com/images/logo.png",
+      "url": "https://www.therealratlami.com",
       "telephone": "+91-98765-43210",
       "email": "info@therealratlami.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ratlam",
         "addressRegion": "Madhya Pradesh",
-        "addressCountry": "India"
+        "addressCountry": "IN"
       },
       "openingHoursSpecification": [
         {
