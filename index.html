@@ -98,15 +98,15 @@ section{padding:90px 6%}
 
 /* PRODUCTS — CURTAIN CARDS */
 .products-sec{background:#fafffe}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
-.product-card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;height:280px;border:1.5px solid #e2f5b0;background:#fff}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.product-card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;height:320px;border:none;background:#222}
 .pcard-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1)}
 .product-card:hover .pcard-bg,.product-card.tapped .pcard-bg{transform:scale(1.08)}
-.pcard-img{position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);height:155px;object-fit:contain;z-index:1;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);filter:drop-shadow(0 8px 20px rgba(0,0,0,0.22))}
-.product-card:hover .pcard-img,.product-card.tapped .pcard-img{transform:translate(-50%,-62%) scale(1.1)}
+.pcard-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1)}
+.product-card:hover .pcard-img,.product-card.tapped .pcard-img{transform:scale(1.06)}
 .curtain-l,.curtain-r{position:absolute;top:0;bottom:0;width:50%;z-index:2;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1)}
-.curtain-l{left:0;transform-origin:left center;background:linear-gradient(to right,var(--cd),var(--cm))}
-.curtain-r{right:0;transform-origin:right center;background:linear-gradient(to left,var(--cd),var(--cm))}
+.curtain-l{left:0;transform-origin:left center;background:var(--cd)}
+.curtain-r{right:0;transform-origin:right center;background:var(--cm)}
 .curtain-l .ctxt,.curtain-r .ctxt{position:absolute;top:50%;font-family:'Teko',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;writing-mode:vertical-rl;color:rgba(255,255,255,0.28);user-select:none;transform:translateY(-50%)}
 .curtain-l .ctxt{right:4px}
 .curtain-r .ctxt{left:4px}
@@ -122,6 +122,23 @@ section{padding:90px 6%}
 .pcard-price{position:absolute;top:12px;left:12px;z-index:4;background:var(--yellow);border-radius:50%;width:46px;height:46px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-weight:700;font-size:16px;color:#111;line-height:1;transform:rotate(-10deg);transition:opacity 0.3s}
 .pcard-price small{font-size:8px;font-weight:700;color:#444;display:block;letter-spacing:0.5px}
 .product-card:hover .pcard-price,.product-card.tapped .pcard-price{opacity:0}
+
+/* FLAVCARD GRID */
+.flavcard-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.flavcard{position:relative;border-radius:18px;overflow:hidden;height:320px;cursor:pointer;transition:transform 0.3s ease,box-shadow 0.3s ease}
+.flavcard:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.4)}
+.flavcard-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.flavcard-img{position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);height:160px;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(0,0,0,0.3));transition:transform 0.35s ease}
+.flavcard:hover .flavcard-img{transform:translate(-50%,-58%) scale(1.07)}
+.flavcard-badge{position:absolute;top:12px;right:12px;background:#111;color:#fff;border-radius:7px;padding:3px 10px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;z-index:2}
+.flavcard-price{position:absolute;top:12px;left:12px;background:var(--yellow);border-radius:50%;width:48px;height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-weight:700;font-size:17px;color:#111;line-height:1;transform:rotate(-10deg);z-index:2}
+.flavcard-price small{font-size:8px;font-weight:700;color:#444;display:block;letter-spacing:0.5px}
+.flavcard-info{position:absolute;bottom:0;left:0;right:0;padding:14px 16px 18px;background:linear-gradient(transparent,rgba(0,0,0,0.88));z-index:2}
+.flavcard-name{font-family:'Teko',sans-serif;font-weight:700;font-size:22px;color:var(--green);line-height:1.05;margin-bottom:5px;letter-spacing:0.5px}
+.flavcard-desc{font-size:11px;color:rgba(255,255,255,0.8);line-height:1.55}
+@media(max-width:1100px){.flavcard-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.flavcard-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.flavcard-grid{grid-template-columns:1fr}}
 
 /* FLAVOURS */
 .flavours-sec{padding:0;background:#111}
@@ -332,19 +349,34 @@ footer{background:#0a0a0a;padding:60px 6% 28px;color:#888}
 </div>
 
 <!-- PRODUCTS / GALLERY -->
-  <div class="flavours-header fade-in" data-animate>
+<section id="products" style="padding:0;background:#111">
+  <div style="text-align:center;padding:56px 6% 40px">
     <div class="sec-eyebrow" style="color:var(--green)">Introducing Our</div>
     <div class="sec-title white">SIGNATURE <span class="green">DESI FLAVOURS</span></div>
-<section id="products" style="padding:60px 6%;background:#ffffff">
-  <section id="gallery" style="padding:0;background:#111">
-  <div class="flavours-grid" id="flavoursGrid"></div>
-</section>
-  <div style="max-width:1200px;margin:0 auto">
+  </div>
+  <div style="padding:0 4% 64px;max-width:1400px;margin:0 auto">
     <div class="products-grid" id="productsGrid"></div>
   </div>
 </section>
-</div>
 
+
+<!-- INGREDIENTS -->
+<section id="ingredients" class="ingr-sec">
+  <div class="ingr-glow"></div>
+  <div class="sec-inner">
+    <div class="fade-in" data-animate>
+      <div class="sec-eyebrow">Desi Punch in Every Sip</div>
+      <div class="sec-title white">INGREDIENTS</div>
+    </div>
+    <div class="ingr-grid fade-in" data-animate>
+      <div class="ingr-card"><div class="ingr-placeholder">Z</div><div class="ingr-name">Zeera (Cumin)</div><div class="ingr-hindi">जीरा</div></div>
+      <div class="ingr-card"><div class="ingr-placeholder">N</div><div class="ingr-name">Nimbu (Lemon)</div><div class="ingr-hindi">नींबू</div></div>
+      <div class="ingr-card"><div class="ingr-placeholder">B</div><div class="ingr-name">Blueberry</div><div class="ingr-hindi">ब्लूबेरी</div></div>
+      <div class="ingr-card"><div class="ingr-placeholder">L</div><div class="ingr-name">Lychee</div><div class="ingr-hindi">लीची</div></div>
+      <div class="ingr-card"><div class="ingr-placeholder">M</div><div class="ingr-name">Masala Spices</div><div class="ingr-hindi">मसाला</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- WHY CHOOSE US -->
 <section id="why" class="why-sec">
@@ -436,13 +468,13 @@ footer{background:#0a0a0a;padding:60px 6% 28px;color:#888}
           <div class="contact-icon-wrap"><div class="contact-icon-letter">L</div></div>
           <div>
             <div class="contact-label">Location</div>
-            <span class="contact-val">Madhya Pradesh</span>
+            <span class="contact-val">Ratlam, Madhya Pradesh</span>
           </div>
         </div>
       </div>
       <div class="map-placeholder fade-in" data-animate>
         <div class="map-pin"><div class="map-pin-inner">R</div></div>
-        <div class="map-city-name">The Real Ratlami</div>
+        <div class="map-city-name">Ratlam</div>
         <div class="map-state">Madhya Pradesh, India</div>
         <button class="map-btn" onclick="window.open('inquiry.html','_blank')">Order Now</button>
       </div>
@@ -460,8 +492,8 @@ footer{background:#0a0a0a;padding:60px 6% 28px;color:#888}
           <span class="footer-brand-name">RATLAMI</span>
         </div>
         <p style="font-size:9px;color:rgba(255,255,255,0.3);font-weight:400;line-height:1.6;max-width:220px;margin-top:-10px;margin-bottom:16px">The images shown on this website and the brand name are for representational purposes only and do not necessarily reflect the actual appearance or nature of the product.</p>
-        <p class="footer-desc">Made with carefully selected flavours of India, The Real Ratlami delivers bold flavour, perfect fizz, and trusted quality in every sip.</p>
-        <div class="footer-reg">Marketed by: The Real Ratlami Pvt. Ltd.</div>
+        <p class="footer-desc">Made with carefully selected desi ingredients, The Real Ratlami delivers bold flavour, perfect fizz, and trusted quality in every sip.</p>
+        <div class="footer-reg">GST: [Placeholder]<br>FSSAI: [Placeholder]<br>Marketed by: The Real Ratlami Pvt. Ltd.</div>
         <div class="footer-socials">
           <div class="social-btn">Fb</div>
           <div class="social-btn">Ig</div>
@@ -497,19 +529,19 @@ footer{background:#0a0a0a;padding:60px 6% 28px;color:#888}
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">2026 The Real Ratlami. All rights reserved.</p>
-      <p class="footer-copy">Made with care in India</p>
+      <p class="footer-copy">Made with care in Ratlam, India</p>
     </div>
   </div>
 </footer>
 
 <script>
 const PRODUCTS = [
-  {name:"Ratlami Lychee",    img:"lychee bg.png",    color:"#d0609a",cd:"#8a2050",bg:"linear-gradient(135deg,#ffe0f0,#e07098)",desc:"Pure lychee taste, no fizz — just sweet, juicy, and real fruit goodness in every sip.",badge:"Still Drink",stmt:"Juicy lychee goodness — sip karo, smile karo."},
-  {name:"Ratlami Mojito",    img:"mojito bg.png",    color:"#6aaa00",cd:"#3a6600",bg:"linear-gradient(135deg,#e4ffa8,#c8ee70)",desc:"Fresh lime-mint fizz with an authentic desi twist. The classic refresher.",badge:"Signature",stmt:"Cafe-style mojito taste in a Rs.10 pack. No kidding."},
-  {name:"Ratlami Blueberry", img:"blueberry bg.png", color:"#3858c0",cd:"#1a2880",bg:"linear-gradient(135deg,#d4e4ff,#8aaaf0)",desc:"Bold blueberry burst with sparkling fizz. Vibrant, cool, refreshing.",badge:"New",stmt:"Bold berry burst — refreshing from the very first sip."},
+  {name:"Ratlami Lychee",    img:"Lichee bg.png",        color:"#d0609a",cd:"#8a2050",bg:"linear-gradient(135deg,#ffe0f0,#e07098)",desc:"Pure lychee taste, no fizz — just sweet, juicy, and real fruit goodness in every sip.",badge:"Still Drink",stmt:"Juicy lychee goodness — sip karo, smile karo."},
+  {name:"Ratlami Mojito",    img:"mojito bg.png",        color:"#6aaa00",cd:"#3a6600",bg:"linear-gradient(135deg,#e4ffa8,#c8ee70)",desc:"Fresh lime-mint fizz with an authentic desi twist. The classic refresher.",badge:"Signature",stmt:"Cafe-style mojito taste in a Rs.10 pack. No kidding."},
+  {name:"Ratlami Blueberry", img:"blueberry bg.png",     color:"#3858c0",cd:"#1a2880",bg:"linear-gradient(135deg,#d4e4ff,#8aaaf0)",desc:"Bold blueberry burst with sparkling fizz. Vibrant, cool, refreshing.",badge:"New",stmt:"Bold berry burst — refreshing from the very first sip."},
   {name:"Ratlami Nimbu Masala",img:"nimbu masala bg.png",color:"#b89000",cd:"#786000",bg:"linear-gradient(135deg,#fff8cc,#ffe040)",desc:"Tangy lemon with chatpata masala spices. The ultimate desi combo.",badge:"Bestseller",stmt:"Chatpata nimbu masala — the classic desi summer hit."},
-  {name:"Ratlami Zeera",     img:"zeera bg.png",     color:"#4a7800",cd:"#284400",bg:"linear-gradient(135deg,#e0ffaa,#a0d850)",desc:"Bold cumin soda with desi spices. The original Indian digestive drink.",badge:"Classic",stmt:"Made with real desi spices — the way your naani always knew best."},
-  {name:"Ratlami Mango",     img:"mango bg.png",     color:"#c07000",cd:"#804000",bg:"linear-gradient(135deg,#ffe0b0,#ffb830)",desc:"Pure sun-ripened mango goodness. No fizz, just real taste — thick, sweet, and totally desi.",badge:"Still Drink",stmt:"Sun-kissed mango magic — desi summer in a bottle."}
+  {name:"Ratlami Zeera",     img:"Jeera bg.png",         color:"#4a7800",cd:"#284400",bg:"linear-gradient(135deg,#e0ffaa,#a0d850)",desc:"Bold cumin soda with desi spices. The original Indian digestive drink.",badge:"Classic",stmt:"Made with real desi spices — the way your naani always knew best."},
+  {name:"Ratlami Mango",     img:"mango bg.png",         color:"#c07000",cd:"#804000",bg:"linear-gradient(135deg,#ffe0b0,#ffb830)",desc:"Pure sun-ripened mango goodness. No fizz, just real taste — thick, sweet, and totally desi.",badge:"Still Drink",stmt:"Sun-kissed mango magic — desi summer in a bottle."}
 ];
 
 const FLAVOURS = [
@@ -528,7 +560,7 @@ document.getElementById('productsGrid').innerHTML = PRODUCTS.map((p,i) => `
        style="--cm:${p.color};--cd:${p.cd};transition-delay:${i*0.07}s"
        onclick="this.classList.toggle('tapped')">
     <div class="pcard-bg" style="background:${p.bg}"></div>
-    <img class="pcard-img" src="${bottleImg}" alt="${p.name}" onerror="this.style.opacity=0">
+    <img class="pcard-img" src="${p.img}" alt="${p.name}" onerror="this.style.opacity=0">
     <div class="curtain-l"><span class="ctxt">The Real Ratlami</span></div>
     <div class="curtain-r"><span class="ctxt">India Ka Desi Thanda</span></div>
     <div class="pcard-badge">${p.badge}</div>
