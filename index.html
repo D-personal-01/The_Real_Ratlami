@@ -98,8 +98,7 @@ section{padding:90px 6%}
 .sec-title .green{color:var(--green)}
 .sec-title.white{color:#fff}
 
-/* PRODUCTS — CURTAIN CARDS */
-.products-sec{background:#fafffe}
+products-sec{background:#fafffe}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
 .product-card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;height:320px;border:none;background:#222}
 .pcard-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1)}
@@ -142,20 +141,6 @@ section{padding:90px 6%}
 @media(max-width:700px){.flavcard-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:420px){.flavcard-grid{grid-template-columns:1fr}}
  
-/* FLAVOURS */
-.flavours-sec{padding:0;background:#111}
-.flavours-header{text-align:center;padding:64px 6% 44px;background:#111}
-.flavours-grid{display:grid;grid-template-columns:repeat(6,1fr)}
-.flavour-card{position:relative;overflow:hidden;cursor:pointer;transition:transform 0.3s ease}
-.flavour-card:hover{transform:scale(1.04);z-index:2}
-.flavour-inner{height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:20px}
-.flavour-img{height:170px;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.2));margin-bottom:18px;transition:transform 0.3s ease}
-.flavour-card:hover .flavour-img{transform:translateY(-8px)}
-.flavour-name{font-family:'Teko',sans-serif;font-size:20px;font-weight:700;color:#fff;text-align:center;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,0.3);letter-spacing:0.5px}
-.flavour-sub{font-size:10px;color:rgba(255,255,255,0.7);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-top:5px}
-.flavour-price{position:absolute;top:14px;right:14px;background:var(--yellow);border-radius:50%;width:50px;height:50px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-weight:700;font-size:18px;color:#111;line-height:1;transform:rotate(-12deg)}
-.flavour-price small{font-size:9px;font-weight:700;color:#333;text-transform:uppercase;letter-spacing:1px}
-
 /* FLAVOURS 
 .flavour-sec{background:#111;position:relative;overflow:hidden}
 .flavour-glow{position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(142,204,9,0.07);pointer-events:none}
