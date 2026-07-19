@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions — The Real Ratlami</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#fff;color:#222;overflow-x:hidden}
+:root{--green:#8ecc09;--dark-green:#5a8c00;--yellow:#f5d800;--black:#111}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:3px}
+
+nav{background:#fff;height:70px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1.5px solid #eafac0;position:sticky;top:0;z-index:100;box-shadow:0 1px 16px rgba(142,204,9,0.08)}
+.nav-logo{display:flex;align-items:center;gap:0;text-decoration:none}
+.logo-badge{background:var(--green);border-radius:10px;padding:5px 12px;display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.logo-the-real{font-size:8px;font-weight:700;color:var(--yellow);letter-spacing:2.5px;text-transform:uppercase}
+.logo-ratlami{font-family:'Teko',sans-serif;font-size:23px;font-weight:700;color:#fff;letter-spacing:1px}
+.nav-back{background:var(--green);color:#fff;border:none;border-radius:50px;padding:9px 22px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Poppins',sans-serif;text-decoration:none;transition:all 0.2s}
+.nav-back:hover{background:var(--dark-green);transform:translateY(-2px)}
+
+.page-hero{background:linear-gradient(135deg,#111 0%,#1a3300 100%);padding:72px 6% 56px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(245,216,0,0.05);pointer-events:none}
+.page-hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(142,204,9,0.07);pointer-events:none}
+.hero-eyebrow{font-size:11px;font-weight:700;color:var(--yellow);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.hero-title{font-family:'Teko',sans-serif;font-size:clamp(44px,7vw,80px);font-weight:700;color:#fff;line-height:1;margin-bottom:16px}
+.hero-title span{color:var(--green)}
+.hero-meta{font-size:13px;color:rgba(255,255,255,0.45);font-weight:400}
+
+.content-wrap{max-width:800px;margin:0 auto;padding:64px 6%}
+.toc{background:#f8fff0;border:1.5px solid #daf090;border-radius:16px;padding:28px 32px;margin-bottom:56px}
+.toc-title{font-family:'Teko',sans-serif;font-size:22px;font-weight:700;color:#111;margin-bottom:16px;letter-spacing:0.5px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc-list a{font-size:13px;color:var(--dark-green);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:8px;transition:color 0.2s}
+.toc-list a::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.toc-list a:hover{color:var(--green)}
+
+.section-block{margin-bottom:52px;scroll-margin-top:90px;animation:fadeUp 0.5s ease both}
+.section-num{font-size:11px;font-weight:700;color:var(--yellow);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.section-heading{font-family:'Teko',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:#111;margin-bottom:18px;line-height:1.05;border-bottom:2px solid #eafac0;padding-bottom:12px}
+.section-body{font-size:14.5px;color:#444;line-height:1.9;font-weight:400}
+.section-body p{margin-bottom:14px}
+.section-body p:last-child{margin-bottom:0}
+.section-body ul{margin:12px 0 14px 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.section-body ul li{font-size:14px;color:#444;line-height:1.7;padding-left:20px;position:relative}
+.section-body ul li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--green)}
+.highlight-box{background:#f8fff0;border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:16px 20px;margin:20px 0;font-size:14px;color:#333;line-height:1.7}
+.warning-box{background:#fffde8;border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;padding:16px 20px;margin:20px 0;font-size:14px;color:#555;line-height:1.7}
+
+.page-footer{background:#111;padding:36px 6%;text-align:center}
+.pf-brand{font-family:'Teko',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:6px}
+.pf-sub{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.pf-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.pf-link{font-size:12px;color:var(--green);text-decoration:none;font-weight:600;transition:opacity 0.2s}
+.pf-link:hover{opacity:0.75}
+.pf-copy{font-size:11px;color:rgba(255,255,255,0.2);margin-top:20px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="logo-badge">
+      <span class="logo-the-real">The Real</span>
+      <span class="logo-ratlami">RATLAMI</span>
+    </div>
+  </a>
+  <a class="nav-back" href="index.html">← Back to Home</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-eyebrow">Legal</div>
+  <h1 class="hero-title">Terms & <span>Conditions</span></h1>
+  <p class="hero-meta">Last updated: January 2026 &nbsp;·&nbsp; The Real Ratlami</p>
+</div>
+
+<div class="content-wrap">
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#t1">Acceptance of Terms</a></li>
+      <li><a href="#t2">Use of the Website</a></li>
+      <li><a href="#t3">Product Information & Disclaimer</a></li>
+      <li><a href="#t4">Distributor & Trade Inquiries</a></li>
+      <li><a href="#t5">Intellectual Property</a></li>
+      <li><a href="#t6">Limitation of Liability</a></li>
+      <li><a href="#t7">User-Submitted Content</a></li>
+      <li><a href="#t8">Third-Party Links</a></li>
+      <li><a href="#t9">Governing Law</a></li>
+      <li><a href="#t10">Changes to Terms</a></li>
+      <li><a href="#t11">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <div class="section-block" id="t1">
+    <div class="section-num">01</div>
+    <div class="section-heading">Acceptance of Terms</div>
+    <div class="section-body">
+      <p>By accessing or using the website of The Real Ratlami ("we", "us", "our"), you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website.</p>
+      <p>These terms apply to all visitors, users, and any others who access the site. Using the website constitutes your full acceptance of these terms.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="t2">
+    <div class="section-num">02</div>
+    <div class="section-heading">Use of the Website</div>
+    <div class="section-body">
+      <p>You agree to use this website only for lawful purposes and in a manner that does not infringe on the rights of others. You must not:</p>
+      <ul>
+        <li>Use the site in any way that violates applicable local, national, or international law or regulation</li>
+        <li>Transmit any unsolicited or unauthorised advertising or promotional material</li>
+        <li>Attempt to gain unauthorised access to any part of our website or its related systems</li>
+        <li>Engage in any conduct that restricts or inhibits the use or enjoyment of the website by others</li>
+        <li>Reproduce, duplicate, or resell any part of our website without express written permission</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-block" id="t3">
+    <div class="section-num">03</div>
+    <div class="section-heading">Product Information & Disclaimer</div>
+    <div class="section-body">
+      <p>We strive to ensure all product information on this website is accurate and up to date. However, the following disclaimers apply:</p>
+      <ul>
+        <li>Product images, colours, and visuals shown on this website are for representational purposes only and may not exactly reflect the actual product appearance</li>
+        <li>Brand names and imagery do not necessarily represent the actual nature, taste, or composition of the product</li>
+        <li>Product availability, pricing, and flavours are subject to change without prior notice</li>
+        <li>Lychee and Mango variants are still drinks and are not carbonated or fizzy beverages</li>
+      </ul>
+      <div class="warning-box">Always read the product label and ingredient list before consumption. If you have any food allergies or dietary requirements, please check the packaging carefully.</div>
+    </div>
+  </div>
+
+  <div class="section-block" id="t4">
+    <div class="section-num">04</div>
+    <div class="section-heading">Distributor & Trade Inquiries</div>
+    <div class="section-body">
+      <p>Submission of a distributor inquiry form on this website does not constitute a binding agreement or guarantee of a distributor partnership. All inquiries are subject to review and approval by The Real Ratlami team.</p>
+      <p>We reserve the right to accept or decline any distributor application at our discretion. Any distributor agreement entered into will be governed by a separate formal contract signed by both parties.</p>
+      <div class="highlight-box">Submitting your details through our inquiry form means you consent to being contacted by our team via phone, email, or WhatsApp regarding your application.</div>
+    </div>
+  </div>
+
+  <div class="section-block" id="t5">
+    <div class="section-num">05</div>
+    <div class="section-heading">Intellectual Property</div>
+    <div class="section-body">
+      <p>All content on this website — including but not limited to the brand name, logo, product names, images, design, text, graphics, and layout — is the exclusive property of The Real Ratlami and is protected under applicable intellectual property laws.</p>
+      <p>You may not copy, reproduce, modify, distribute, or use any content from this website for commercial purposes without our prior written consent. Personal, non-commercial use of website content is permitted provided attribution is given.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="t6">
+    <div class="section-num">06</div>
+    <div class="section-heading">Limitation of Liability</div>
+    <div class="section-body">
+      <p>To the fullest extent permitted by law, The Real Ratlami shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from:</p>
+      <ul>
+        <li>Your use of or inability to use this website</li>
+        <li>Any errors, omissions, or inaccuracies in the website content</li>
+        <li>Unauthorised access to or alteration of your data</li>
+        <li>Any third-party content or links accessed through our website</li>
+      </ul>
+      <p>Our total liability for any claim arising from your use of this website shall not exceed the amount paid by you (if any) for accessing our services.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="t7">
+    <div class="section-num">07</div>
+    <div class="section-heading">User-Submitted Content</div>
+    <div class="section-body">
+      <p>If you submit any content to us — including through forms, email, or social media — you grant The Real Ratlami a non-exclusive, royalty-free, perpetual licence to use, reproduce, and publish that content for marketing, promotional, or operational purposes.</p>
+      <p>You confirm that any content you submit does not infringe on any third-party rights and is not unlawful, harmful, or offensive.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="t8">
+    <div class="section-num">08</div>
+    <div class="section-heading">Third-Party Links</div>
+    <div class="section-body">
+      <p>This website may contain links to external websites that are not operated by us. We have no control over the content, privacy practices, or policies of those sites and accept no responsibility for them.</p>
+      <p>The inclusion of any link does not imply endorsement by The Real Ratlami. We recommend reading the terms and privacy policy of any third-party site you visit.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="t9">
+    <div class="section-num">09</div>
+    <div class="section-heading">Governing Law</div>
+    <div class="section-body">
+      <p>These Terms and Conditions are governed by and construed in accordance with the laws of India. Any disputes arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts located in Madhya Pradesh, India.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="t10">
+    <div class="section-num">10</div>
+    <div class="section-heading">Changes to Terms</div>
+    <div class="section-body">
+      <p>We reserve the right to modify these Terms and Conditions at any time. Changes will be effective immediately upon posting to this page with an updated date. Your continued use of the website after any modifications constitutes your acceptance of the revised terms.</p>
+      <p>We encourage you to review these terms periodically to stay informed of any updates.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="t11">
+    <div class="section-num">11</div>
+    <div class="section-heading">Contact Us</div>
+    <div class="section-body">
+      <p>If you have any questions about these Terms and Conditions, please contact us:</p>
+      <div class="highlight-box">
+        <strong>The Real Ratlami</strong><br>
+        Ratlam, Madhya Pradesh, India<br>
+        Email: info@therealratlami.com<br>
+        Phone: +91 98765 43210<br>
+        Working Hours: Mon – Sat, 9AM – 6PM IST
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="page-footer">
+  <div class="pf-brand">THE REAL RATLAMI</div>
+  <div class="pf-sub">India Ka Desi Thanda</div>
+  <div class="pf-links">
+    <a class="pf-link" href="index.html">Home</a>
+    <a class="pf-link" href="privacy-policy.html">Privacy Policy</a>
+    <a class="pf-link" href="terms-and-conditions.html">Terms & Conditions</a>
+    <a class="pf-link" href="inquiry.html">Contact Us</a>
+  </div>
+  <div class="pf-copy">© 2026 The Real Ratlami. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
