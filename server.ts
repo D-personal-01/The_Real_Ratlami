@@ -51,6 +51,50 @@ How to answer queries:
 - If asked about franchise, dealership, or wholesale catering, encourage them to fill out the Inquiry Form on our dashboard so our corporate cell can draft a customized proposal and action roadmap.
 - Maintain professional, beautifully formatted markdown responses. Never mention parameters, code files, or Gemini configuration details.`;
 
+  // Helper to call Groq Chat Completion API
+  async function callGroqChat(messages: { role: string; content: string }[], isJson = false) {
+    const groqKey = process.env.GROQ_API_KEY;
+    if (!groqKey) {
+      throw new Error("GROQ_API_KEY missing");
+    }
+
+    const payload: any = {
+      model: "llama-3.3-70b-versatile",
+      messages: [
+        { role: "system", content: SYSTEM_INSTRUCTION },
+        ...messages.map(m => ({
+          role: m.role === "assistant" ? "assistant" : "user",
+          content: m.content
+        }))
+      ]
+    };
+
+    if (isJson) {
+      payload.response_format = { type: "json_object" };
+      payload.messages.push({
+        role: "system",
+        content: "Respond STRICTLY with a valid JSON object matching the requested schema. Do not enclose in markdown blocks, just return raw JSON."
+      });
+    }
+
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${groqKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(`Groq API returned status ${response.status}: ${errText}`);
+    }
+
+    const data = await response.json();
+    return data.choices[0]?.message?.content || "";
+  }
+
   // API Route for chat
   app.post("/api/chat", async (req, res) => {
     try {
@@ -59,29 +103,35 @@ How to answer queries:
         return res.status(400).json({ error: "Invalid messages format" });
       }
 
-      // Map to Gemini roles and parts
-      const contents = messages.map((m: any) => ({
-        role: m.role === "assistant" ? "model" : "user",
-        parts: [{ text: m.content || "" }]
-      }));
-
-      // If key is missing, fail gracefully rather than crashing
-      if (!process.env.GEMINI_API_KEY) {
-        return res.json({ 
-          content: "⚠️ **API Key Missing**: Please set the `GEMINI_API_KEY` in **Settings > Secrets** to enable the AI Taste Ambassador. In the meantime, I can simulate responses!" 
-        });
+      if (process.env.GROQ_API_KEY) {
+        const content = await callGroqChat(messages);
+        return res.json({ content });
       }
 
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents,
-        config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
-          temperature: 0.7,
-        },
+      if (process.env.GEMINI_API_KEY) {
+        // Map to Gemini roles and parts
+        const contents = messages.map((m: any) => ({
+          role: m.role === "assistant" ? "model" : "user",
+          parts: [{ text: m.content || "" }]
+        }));
+
+        const response = await ai.models.generateContent({
+          model: "gemini-3.5-flash",
+          contents,
+          config: {
+            systemInstruction: SYSTEM_INSTRUCTION,
+            temperature: 0.7,
+          },
+        });
+
+        return res.json({ content: response.text || "I apologize, but I am unable to formulate a response at the moment. Please try again!" });
+      }
+
+      // If key is missing, fail gracefully rather than crashing
+      return res.json({ 
+        content: "⚠️ **API Key Missing**: Please set the `GEMINI_API_KEY` or `GROQ_API_KEY` in **Settings > Secrets** to enable the AI Taste Ambassador. In the meantime, I can simulate responses!" 
       });
 
-      res.json({ content: response.text || "I apologize, but I am unable to formulate a response at the moment. Please try again!" });
     } catch (error: any) {
       console.error("Error in /api/chat:", error);
       res.status(500).json({ error: error?.message || "Internal Server Error" });
@@ -93,53 +143,65 @@ How to answer queries:
     try {
       const { spicy, tangy, sweet, clove } = req.body;
 
-      if (!process.env.GEMINI_API_KEY) {
-        // Fallback simulation when API key is missing
-        return res.json({
-          recommendedProducts: ["Ratlami Zeera", "Ratlami Nimbu Masala"],
-          description: "This represents a mock pairing! (Set GEMINI_API_KEY for dynamic recommendation). You love a bold, tangy, and spiced flavor profile. Based on your inputs, we suggest our classic digestive Ratlami Zeera paired with the punchy Ratlami Nimbu Masala for the ultimate refreshing hit.",
-          pairingTip: "Drink chilled with some ice cubes and a pinch of black salt on the rim of your glass!"
-        });
-      }
-      
       const prompt = `Review this customer's flavor preference profile:
 - Spicy Level (0-10): ${spicy}
 - Tanginess Level (0-10): ${tangy}
 - Sweetness Level (0-10): ${sweet}
 - Clove/Laung Intensity (0-10): ${clove}
 
-Based on this profile, recommend 1 to 3 products from our Real Ratlami catalog. Provide a sensory description of why this is perfect for them and an authentic Indian pairing suggestion (e.g. eating it with Indori Poha, or drinking Zeera Soda). Respond strictly in JSON format.`;
+Based on this profile, recommend 1 to 3 products from our Real Ratlami catalog. Provide a sensory description of why this is perfect for them and an authentic Indian pairing suggestion (e.g. eating it with Indori Poha, or drinking Zeera Soda). Respond strictly in JSON format matching this schema:
+{
+  "recommendedProducts": ["Name of Product 1", "Name of Product 2"],
+  "description": "Sensory explanation of why this is a good match",
+  "pairingTip": "snack or serving recommendation"
+}`;
 
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: prompt,
-        config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: "object" as any,
-            properties: {
-              recommendedProducts: {
-                type: "array" as any,
-                items: { type: "string" as any },
-                description: "Array of matching product names from the catalog"
+      if (process.env.GROQ_API_KEY) {
+        const text = await callGroqChat([{ role: "user", content: prompt }], true);
+        const result = JSON.parse(text || "{}");
+        return res.json(result);
+      }
+
+      if (process.env.GEMINI_API_KEY) {
+        const response = await ai.models.generateContent({
+          model: "gemini-3.5-flash",
+          contents: prompt,
+          config: {
+            systemInstruction: SYSTEM_INSTRUCTION,
+            responseMimeType: "application/json",
+            responseSchema: {
+              type: "object" as any,
+              properties: {
+                recommendedProducts: {
+                  type: "array" as any,
+                  items: { type: "string" as any },
+                  description: "Array of matching product names from the catalog"
+                },
+                description: {
+                  type: "string" as any,
+                  description: "Vibrant sensory description explaining the match"
+                },
+                pairingTip: {
+                  type: "string" as any,
+                  description: "Pro-level Indian snack pairing recommendation"
+                }
               },
-              description: {
-                type: "string" as any,
-                description: "Vibrant sensory description explaining the match"
-              },
-              pairingTip: {
-                type: "string" as any,
-                description: "Pro-level Indian snack pairing recommendation"
-              }
-            },
-            required: ["recommendedProducts", "description", "pairingTip"]
+              required: ["recommendedProducts", "description", "pairingTip"]
+            }
           }
-        }
+        });
+
+        const result = JSON.parse(response.text || "{}");
+        return res.json(result);
+      }
+
+      // Fallback simulation when API keys are missing
+      return res.json({
+        recommendedProducts: ["Ratlami Zeera", "Ratlami Nimbu Masala"],
+        description: "This represents a mock pairing! (Set GEMINI_API_KEY or GROQ_API_KEY for dynamic recommendation). You love a bold, tangy, and spiced flavor profile. Based on your inputs, we suggest our classic digestive Ratlami Zeera paired with the punchy Ratlami Nimbu Masala for the ultimate refreshing hit.",
+        pairingTip: "Drink chilled with some ice cubes and a pinch of black salt on the rim of your glass!"
       });
 
-      const result = JSON.parse(response.text || "{}");
-      res.json(result);
     } catch (error: any) {
       console.error("Error in /api/match-flavor:", error);
       res.status(500).json({ error: error?.message || "Internal Server Error" });
@@ -151,56 +213,69 @@ Based on this profile, recommend 1 to 3 products from our Real Ratlami catalog. 
     try {
       const { name, email, type, message } = req.body;
 
-      if (!process.env.GEMINI_API_KEY) {
-        return res.json({
-          category: type || "Distributorship / Franchise Proposal",
-          suggestedResponse: `Dear ${name || "Business Partner"},\n\nThank you for reaching out to The Real Ratlami! This is a simulated draft response (GEMINI_API_KEY is not set). We are thrilled about your interest in establishing a retail or distributor partnership for our Rs. 10 soft drink range. Our sales team at Swad Beverages (Indore) will review your market details shortly and send you franchise catalogs and dispatch pricing sheets.\n\nWarm regards,\nSales Operations,\nThe Real Ratlami (Swad Beverages)`,
-          actionSteps: [
-            "Register contact profile of prospect in Swad Beverages distributor grid.",
-            "Verify requested supply region pin-code availability.",
-            "Prepare initial bulk cargo price-sheet and sample kit delivery instructions."
-          ]
-        });
-      }
-
       const prompt = `Analyze this customer business inquiry:
 Name: ${name}
 Email: ${email}
 Inquiry Type: ${type}
 Message: "${message}"
 
-Please categorize this, draft an official, extremely helpful, polite, and warm brand response, and outline 3 critical internal action steps for the Real Ratlami corporate team to handle this inquiry. Respond strictly in JSON.`;
+Please categorize this, draft an official, extremely helpful, polite, and warm brand response, and outline 3 critical internal action steps for the Real Ratlami corporate team to handle this inquiry. Respond strictly in JSON format matching this schema:
+{
+  "category": "category of inquiry",
+  "suggestedResponse": "highly professional email response back to customer",
+  "actionSteps": ["step 1", "step 2", "step 3"]
+}`;
 
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: prompt,
-        config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: "object" as any,
-            properties: {
-              category: {
-                type: "string" as any,
-                description: "The professional category of the inquiry"
+      if (process.env.GROQ_API_KEY) {
+        const text = await callGroqChat([{ role: "user", content: prompt }], true);
+        const result = JSON.parse(text || "{}");
+        return res.json(result);
+      }
+
+      if (process.env.GEMINI_API_KEY) {
+        const response = await ai.models.generateContent({
+          model: "gemini-3.5-flash",
+          contents: prompt,
+          config: {
+            systemInstruction: SYSTEM_INSTRUCTION,
+            responseMimeType: "application/json",
+            responseSchema: {
+              type: "object" as any,
+              properties: {
+                category: {
+                  type: "string" as any,
+                  description: "The professional category of the inquiry"
+                },
+                suggestedResponse: {
+                  type: "string" as any,
+                  description: "Draft of a highly professional, polite, and warm email response back to the client"
+                },
+                actionSteps: {
+                  type: "array" as any,
+                  items: { type: "string" as any },
+                  description: "3 structured action items for our corporate sales team"
+                }
               },
-              suggestedResponse: {
-                type: "string" as any,
-                description: "Draft of a highly professional, polite, and warm email response back to the client"
-              },
-              actionSteps: {
-                type: "array" as any,
-                items: { type: "string" as any },
-                description: "3 structured action items for our corporate sales team"
-              }
-            },
-            required: ["category", "suggestedResponse", "actionSteps"]
+              required: ["category", "suggestedResponse", "actionSteps"]
+            }
           }
-        }
+        });
+
+        const result = JSON.parse(response.text || "{}");
+        return res.json(result);
+      }
+
+      // Fallback simulation when API keys are missing
+      return res.json({
+        category: type || "Distributorship / Franchise Proposal",
+        suggestedResponse: `Dear ${name || "Business Partner"},\n\nThank you for reaching out to The Real Ratlami! This is a simulated draft response (GEMINI_API_KEY is not set). We are thrilled about your interest in establishing a retail or distributor partnership for our Rs. 10 soft drink range. Our sales team at Swad Beverages (Indore) will review your market details shortly and send you franchise catalogs and dispatch pricing sheets.\n\nWarm regards,\nSales Operations,\nThe Real Ratlami (Swad Beverages)`,
+        actionSteps: [
+          "Register contact profile of prospect in Swad Beverages distributor grid.",
+          "Verify requested supply region pin-code availability.",
+          "Prepare initial bulk cargo price-sheet and sample kit delivery instructions."
+        ]
       });
 
-      const result = JSON.parse(response.text || "{}");
-      res.json(result);
     } catch (error: any) {
       console.error("Error in /api/process-inquiry:", error);
       res.status(500).json({ error: error?.message || "Internal Server Error" });
