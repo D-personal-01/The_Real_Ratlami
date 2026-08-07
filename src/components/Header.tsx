@@ -1,7 +1,7 @@
 import React from "react";
 import { Sparkles, BadgeCheck, Zap } from "lucide-react";
 // @ts-ignore
-import heroImage from "../assets/images/real_ratlami_hero_1784106207832.jpg";
+import heroImage from "../assets/images/real_ratlami_hero_1784106207832.png";
 
 export default function Header() {
   return (
