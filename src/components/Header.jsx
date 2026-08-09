@@ -13,9 +13,8 @@ export default function Header() {
               The Real Ratlami</Link>
           </div>
           <div className="hidden md:block md:flex items-center md:space-x-4">
-            <Link to="/dashboard" className="hover:text-gray-200" hover:text-white md:ml-4
-              className="mx-2 px-3 py-2 rounded-md text-white lg:ml-auto"
-            >Dashboard</Link>
+            <Link to="/dashboard" className="hover:text-gray-200 hover:text-white md:ml-4 mx-2 px-3 py-2 rounded-md text-white lg:ml-auto">
+            Dashboard</Link>
           </div>
         </div>
       </div>
