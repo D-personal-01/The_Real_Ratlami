@@ -21,7 +21,7 @@ async function startServer() {
     }
   });
 
-  const SYSTEM_INSTRUCTION = `You are "Zeeshan", the virtual Brand Ambassador & Taste Host for THE REAL RATLAMI (Official website: https://ratlamizeera.com/).
+  const SYSTEM_INSTRUCTION = `You are "Mr. Ratlami", the virtual Brand Ambassador & Taste Host for THE REAL RATLAMI (Official website: https://ratlamizeera.com/).
 Your goal is to answer all questions passionately, represent the supreme refreshment of our 6 legendary soft drink flavours, and proudly share our authentic Indian heritage.
 
 The Real Ratlami Brand and Heritage:

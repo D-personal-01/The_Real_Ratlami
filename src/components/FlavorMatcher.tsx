@@ -55,7 +55,7 @@ export default function FlavorMatcher({ onMatch, isMatching, matchResult }: Flav
             AI Thanda Profile Matcher
           </h3>
           <p className="text-stone-500 text-xs mt-1 leading-relaxed">
-            Configure your dream beverage profile using the sliders below. Zeeshan, our Taste AI, will blend and recommend your ultimate "India Ka Desi Thanda" flavor!
+            Configure your dream beverage profile using the sliders below. Mr. Ratlami, our Taste AI, will blend and recommend your ultimate "India Ka Desi Thanda" flavor!
           </p>
         </div>
 

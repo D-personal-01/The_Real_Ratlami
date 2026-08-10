@@ -40,7 +40,7 @@ export default function ChatPanel({ messages, onSendMessage, isGenerating }: Cha
           </div>
           <div>
             <h3 className="font-bold text-stone-900 text-sm md:text-base flex items-center gap-1.5">
-              Zeeshan <span className="text-[9px] uppercase font-mono tracking-wider px-2 py-0.5 rounded-full bg-brand-lime-light text-brand-lime-hover border border-brand-lime/20 font-black">Ambassador</span>
+              Mr. Ratlami <span className="text-[9px] uppercase font-mono tracking-wider px-2 py-0.5 rounded-full bg-brand-lime-light text-brand-lime-hover border border-brand-lime/20 font-black">Ambassador</span>
             </h3>
             <p className="text-xs text-stone-500">Official Brand Taste AI</p>
           </div>
@@ -59,7 +59,7 @@ export default function ChatPanel({ messages, onSendMessage, isGenerating }: Cha
               <GlassWater className="w-8 h-8" />
             </div>
             <div>
-              <h4 className="font-extrabold text-stone-900 text-lg">Ask Ambassador Zeeshan!</h4>
+              <h4 className="font-extrabold text-stone-900 text-lg">Ask Ambassador Mr. Ratlami!</h4>
               <p className="text-stone-500 text-sm mt-1.5 leading-relaxed">
                 Learn about Swad Beverages, the Rs.10 price revolution, still fruit juices vs carbonated sodas, and our secret cumin & lemon spice blends.
               </p>
@@ -155,7 +155,7 @@ export default function ChatPanel({ messages, onSendMessage, isGenerating }: Cha
           value={input}
           onChange={(e) => setInput(e.target.value)}
           disabled={isGenerating}
-          placeholder="Ask Zeeshan about soft drink flavours, Swad Beverages..."
+          placeholder="Ask Mr. Ratlami about soft drink flavours, Swad Beverages..."
           className="flex-1 bg-white border border-stone-200 focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/10 outline-none rounded-xl px-4 py-3 text-sm text-stone-850 placeholder-stone-400 focus:bg-white transition-all duration-200"
         />
         <button
