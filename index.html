@@ -1229,50 +1229,6 @@ async function sendChatMessageWithText(text) {
 }
 </script>
 
-<!-- Floating AI Chatbot Widget -->
-<div id="ai-chat-widget" class="ai-chat-widget">
-  <!-- Launcher Button -->
-  <button id="chat-launcher" class="chat-launcher" aria-label="Chat with Mr. Ratlami" onclick="toggleChat()">
-    <div class="launcher-pulse"></div>
-    <i class="fa-solid fa-robot"></i>
-    <span class="launcher-tooltip">Chat with Mr. Ratlami!</span>
-  </button>
-
-  <!-- Chat Window -->
-  <div id="chat-window" class="chat-window hidden">
-    <div class="chat-header">
-      <div class="header-info">
-        <div class="avatar-wrap">
-          <span class="avatar-letter">R</span>
-          <span class="online-status"></span>
-        </div>
-        <div>
-          <div class="chat-title">Mr. Ratlami</div>
-          <div class="chat-subtitle">Taste Ambassador &amp; Host</div>
-        </div>
-      </div>
-      <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close Chat">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-
-    <div id="chat-messages" class="chat-messages">
-      <!-- Welcome message -->
-      <div class="msg-bubble assistant">
-        <div class="msg-content">
-          <p><strong>Namaste!</strong> I am <strong>Mr. Ratlami</strong>, your virtual Brand Ambassador &amp; Taste Host for <strong>The Real Ratlami</strong>! 🥤</p>
-          <p>I can help you explore our 6 legendary Rs. 10 soft drink flavours or guide you with dealerships and inquiries. What would you like to explore today?</p>
-        </div>
-        <span class="msg-time">Just now</span>
-      </div>
-    </div>
-
-    <!-- Quick Prompts -->
-    <div class="quick-prompts-container">
-      <button class="quick-prompt-chip" onclick="sendQuickPrompt('What flavours do you have?')">Our Flavours</button>
-      <button class="quick-prompt-chip" onclick="sendQuickPrompt('How can I get a dealership/franchise?')">Franchise Info</button>
-      <button class="quick-prompt-chip" onclick="sendQuickPrompt('Where are you located?')">Our Location</button>
-    </div>
 
     <div class="chat-input-area">
       <textarea id="chat-input" placeholder="Type a message..." rows="1" onkeydown="handleChatInputKey(event)"></textarea>
