@@ -1,0 +1,6 @@
+{
+  "name": "Real Ratlami AI Assistant",
+  "description": "The official interactive brand workspace for The Real Ratlami soft drinks by Swad Beverages, showcasing our 6 legendary Rs. 10 flavours including Ratlami Zeera and Ratlami Mojito.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

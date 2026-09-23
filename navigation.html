@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="Logo.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factory Address - The Real Ratlami</title>
+    <title>Navigation - The Real Ratlami</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -58,16 +57,14 @@
             text-decoration: none;
         }
 
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .logo-text {
+        .logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            line-height: 1.15;
         }
 
         .logo-the-real {
@@ -82,7 +79,7 @@
             font-family: 'Teko', sans-serif;
             font-size: 23px;
             font-weight: 700;
-            color: var(--green);
+            color: #fff;
             letter-spacing: 1px;
         }
 
@@ -127,82 +124,102 @@
             margin: 0 auto 30px;
         }
 
-        /* Content Section */
-        .content-section {
+        /* Navigation Section */
+        .nav-section {
             padding: 40px 0 80px;
         }
 
-        .content-container {
+        .nav-container {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            border: 1.5px solid #e2f5b0;
         }
 
-        .content-header {
+        .nav-header {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .content-header h2 {
+        .nav-header h2 {
             font-family: 'Teko', sans-serif;
             font-size: 36px;
             color: #111;
             margin-bottom: 15px;
         }
 
-        .content-header p {
+        .nav-header p {
             color: #777;
             font-size: 16px;
         }
 
-        .address-card {
-            background: #f8fff0;
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            border: 1.5px solid #daf090;
-            transition: all 0.3s ease;
-            margin-top: 30px;
+        .nav-category {
+            margin-bottom: 40px;
         }
 
-        .address-card:hover {
+        .nav-category h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--green);
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-link {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1.5px solid #e2f5b0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #111;
+            display: block;
+        }
+
+        .nav-link:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(142, 204, 9, 0.15);
+            border-color: var(--green);
         }
 
-        .address-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+        .nav-link h4 {
             font-family: 'Teko', sans-serif;
-            font-size: 36px;
-            color: white;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--dark-green);
         }
 
-        .address-card h3 {
-            font-family: 'Teko', sans-serif;
-            font-size: 24px;
+        .nav-link p {
+            color: #555;
+            line-height: 1.6;
             margin-bottom: 15px;
-            color: #111;
         }
 
-        .address-details {
-            font-size: 18px;
-            color: #333;
-            font-weight: 500;
-            line-height: 1.8;
-            letter-spacing: 0.5px;
-            max-width: 500px;
-            margin: 0 auto;
+        .nav-link .link-btn {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover .link-btn {
+            background: var(--dark-green);
         }
 
         /* Footer */
@@ -261,10 +278,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .content-container {
-                padding: 30px 20px;
-            }
-
             .hero {
                 padding: 60px 0 30px;
             }
@@ -292,8 +305,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">
-                    <img src="Logo.jpg" alt="The Real Ratlami Logo" class="logo-img">
-                    <div class="logo-text">
+                    <div class="logo-badge">
                         <span class="logo-the-real">The Real</span>
                         <span class="logo-ratlami">RATLAMI</span>
                     </div>
@@ -308,33 +320,114 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>OUR <span class="green">FACTORY</span></h1>
-            <p>Visit our manufacturing facility where quality meets tradition</p>
+            <h1>WEBSITE <span class="green">NAVIGATION</span></h1>
+            <p>Explore all pages of The Real Ratlami website</p>
         </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="content-section">
+    <!-- Navigation Section -->
+    <section class="nav-section">
         <div class="container">
-            <div class="content-container">
-                <div class="content-header">
-                    <h2>FACTORY LOCATION</h2>
-                    <p>Find us at our state-of-the-art manufacturing facility</p>
+            <div class="nav-container">
+                <div class="nav-header">
+                    <h2>ALL PAGES</h2>
+                    <p>Complete navigation guide for The Real Ratlami website</p>
                 </div>
 
-                <div class="address-card">
-                    <div class="address-icon">🏭</div>
-                    <h3>Manufacturing Facility</h3>
-                    <div class="address-details">
-                        559, MR9, Link Road,<br>
-                        Khajrana Factory 1<br>
-                        Indore, Madhya Pradesh<br>
-                        India - 452016
+                <!-- Main Pages -->
+                <div class="nav-category">
+                    <h3>MAIN PAGES</h3>
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link">
+                            <h4>Home Page</h4>
+                            <p>Main landing page with all sections</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="about.html" class="nav-link">
+                            <h4>About Us</h4>
+                            <p>Brand story, mission, and values</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="inquiry.html" class="nav-link">
+                            <h4>Contact/Inquiry</h4>
+                            <p>Get in touch with our team</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="faq.html" class="nav-link">
+                            <h4>FAQ</h4>
+                            <p>Frequently asked questions</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
                     </div>
-                    <p style="margin-top: 20px; color: #666; font-size: 14px;">
-                        Our factory operates with strict quality control measures<br>
-                        to ensure every bottle meets our high standards.
-                    </p>
+                </div>
+
+                <!-- Product Pages -->
+                <div class="nav-category">
+                    <h3>PRODUCT PAGES</h3>
+                    <div class="nav-links">
+                        <a href="product-lychee.html" class="nav-link">
+                            <h4>Ratlami Lychee</h4>
+                            <p>Tropical lychee with a fizzy desi kick</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-mojito.html" class="nav-link">
+                            <h4>Ratlami Mojito</h4>
+                            <p>Fresh lime-mint fizz with an authentic desi twist</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-blueberry.html" class="nav-link">
+                            <h4>Ratlami Blueberry</h4>
+                            <p>Bold blueberry burst with sparkling fizz</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-nimbu-masala.html" class="nav-link">
+                            <h4>Ratlami Nimbu Masala</h4>
+                            <p>Tangy lemon with chatpata masala spices</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+
+                        <a href="product-zeera.html" class="nav-link">
+                            <h4>Ratlami Zeera</h4>
+                            <p>Bold cumin soda with desi spices</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SEO Resources -->
+                <div class="nav-category">
+                    <h3>SEO RESOURCES</h3>
+                    <div class="nav-links">
+                        <a href="robots.txt" class="nav-link">
+                            <h4>Robots.txt</h4>
+                            <p>Search engine crawler instructions</p>
+                            <span class="link-btn">View File</span>
+                        </a>
+
+                        <a href="sitemap.xml" class="nav-link">
+                            <h4>Sitemap.xml</h4>
+                            <p>Website structure for search engines</p>
+                            <span class="link-btn">View File</span>
+                        </a>
+
+                        <a href="structured-data.jsonld" class="nav-link">
+                            <h4>Structured Data</h4>
+                            <p>Schema.org markup for rich results</p>
+                            <span class="link-btn">View File</span>
+                        </a>
+
+                        <a href="seo-hub.html" class="nav-link">
+                            <h4>SEO Hub</h4>
+                            <p>Central hub for SEO resources</p>
+                            <span class="link-btn">Visit Page</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

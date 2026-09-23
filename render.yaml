@@ -1,0 +1,38 @@
+# Render Deployment Configuration for The Real Ratlami AI Bot
+# Deploy URL: https://the-real-ratlami.onrender.com
+
+services:
+  - type: web
+    name: the-real-ratlami-ai
+    runtime: node
+    branch: master
+
+    # Build and start commands
+    buildCommand: |
+      npm ci && npm run build
+
+    startCommand: |
+      node dist/server.cjs
+
+    # Environment configuration
+    env: node
+    nodeVersion: 20.x
+
+    # Production settings
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+
+    # Secrets - Set these in Render Dashboard under Environment > Secrets
+    # Required for AI functionality:
+    #   GEMINI_API_KEY - Your Google Gemini API key (or)
+    #   GROQ_API_KEY - Your Groq API key
+
+    # Service plan
+    plan: free
+    autoDeploy: true
+
+    # Health check
+    healthCheckPath: /

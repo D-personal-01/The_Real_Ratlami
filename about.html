@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="Logo.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factory Address - The Real Ratlami</title>
+    <title>About Us - The Real Ratlami</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -58,16 +57,14 @@
             text-decoration: none;
         }
 
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .logo-text {
+        .logo-badge {
+            background: var(--green);
+            border-radius: 10px;
+            padding: 5px 12px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            line-height: 1.15;
         }
 
         .logo-the-real {
@@ -82,7 +79,7 @@
             font-family: 'Teko', sans-serif;
             font-size: 23px;
             font-weight: 700;
-            color: var(--green);
+            color: #fff;
             letter-spacing: 1px;
         }
 
@@ -159,50 +156,63 @@
             font-size: 16px;
         }
 
-        .address-card {
-            background: #f8fff0;
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            border: 1.5px solid #daf090;
-            transition: all 0.3s ease;
+        .content-block {
+            margin-bottom: 40px;
+        }
+
+        .content-block h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+
+        .content-block p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin-top: 30px;
         }
 
-        .address-card:hover {
+        .value-card {
+            background: #f8fff0;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            border: 1.5px solid #daf090;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(142, 204, 9, 0.15);
         }
 
-        .address-icon {
-            width: 80px;
-            height: 80px;
+        .value-icon {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: var(--green);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             font-family: 'Teko', sans-serif;
-            font-size: 36px;
+            font-size: 24px;
             color: white;
         }
 
-        .address-card h3 {
+        .value-card h4 {
             font-family: 'Teko', sans-serif;
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 22px;
+            margin-bottom: 10px;
             color: #111;
-        }
-
-        .address-details {
-            font-size: 18px;
-            color: #333;
-            font-weight: 500;
-            line-height: 1.8;
-            letter-spacing: 0.5px;
-            max-width: 500px;
-            margin: 0 auto;
         }
 
         /* Footer */
@@ -291,14 +301,13 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="Logo.jpg" alt="The Real Ratlami Logo" class="logo-img">
-                    <div class="logo-text">
+                <a href="the_real_ratlami_clean.html" class="logo">
+                    <div class="logo-badge">
                         <span class="logo-the-real">The Real</span>
                         <span class="logo-ratlami">RATLAMI</span>
                     </div>
                 </a>
-                <a href="index.html" class="back-link">
+                <a href="the_real_ratlami_clean.html" class="back-link">
                     <span>←</span> Back to Main Page
                 </a>
             </div>
@@ -308,8 +317,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>OUR <span class="green">FACTORY</span></h1>
-            <p>Visit our manufacturing facility where quality meets tradition</p>
+            <h1>OUR <span class="green">STORY</span></h1>
+            <p>Discover the authentic taste of Ratlam through our journey of bringing real, desi flavors to every household.</p>
         </div>
     </section>
 
@@ -318,23 +327,52 @@
         <div class="container">
             <div class="content-container">
                 <div class="content-header">
-                    <h2>FACTORY LOCATION</h2>
-                    <p>Find us at our state-of-the-art manufacturing facility</p>
+                    <h2>THE REAL RATLAMI JOURNEY</h2>
+                    <p>From the heart of Madhya Pradesh to bottles across India</p>
                 </div>
 
-                <div class="address-card">
-                    <div class="address-icon">🏭</div>
-                    <h3>Manufacturing Facility</h3>
-                    <div class="address-details">
-                        559, MR9, Link Road,<br>
-                        Khajrana Factory 1<br>
-                        Indore, Madhya Pradesh<br>
-                        India - 452016
+                <div class="content-block">
+                    <h3>Our Beginnings</h3>
+                    <p>The Real Ratlami was born from a simple idea: to bring the authentic taste of Ratlam to every home across India. Founded in the historic city of Ratlam, Madhya Pradesh, our journey began with a passion for preserving traditional Indian flavors in a modern, accessible format.</p>
+                    <p>Inspired by the bustling markets and vibrant street food culture of Ratlam, we set out to create beverages that capture the essence of desi taste - bold, refreshing, and unmistakably Indian.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Our Philosophy</h3>
+                    <p>We believe that great taste comes from great ingredients. That's why we source only the finest, real ingredients for our beverages. From premium zeera seeds to fresh fruit essences, every component is carefully selected to ensure the authentic taste that defines The Real Ratlami.</p>
+                    <p>Our manufacturing process combines traditional techniques with modern quality standards, ensuring that every bottle delivers the same consistent, delicious experience that has made us a household name.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Our Values</h3>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">A</div>
+                            <h4>Authenticity</h4>
+                            <p>Preserving traditional Indian flavors and recipes</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">Q</div>
+                            <h4>Quality</h4>
+                            <p>Maintaining the highest standards in production</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">A</div>
+                            <h4>Affordability</h4>
+                            <p>Making premium taste accessible to everyone</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">S</div>
+                            <h4>Sustainability</h4>
+                            <p>Responsible manufacturing and packaging</p>
+                        </div>
                     </div>
-                    <p style="margin-top: 20px; color: #666; font-size: 14px;">
-                        Our factory operates with strict quality control measures<br>
-                        to ensure every bottle meets our high standards.
-                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Looking Forward</h3>
+                    <p>As we continue to grow, our commitment to authentic taste and quality remains unwavering. We're constantly innovating to bring new flavors while staying true to our roots, and expanding our reach to bring the taste of Ratlam to more households across India.</p>
+                    <p>Our vision is to become India's most beloved desi beverage brand, recognized for our commitment to quality, authenticity, and the unique flavors that make us who we are.</p>
                 </div>
             </div>
         </div>
@@ -344,7 +382,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="footer-logo">
+                <a href="the_real_ratlami_clean.html" class="footer-logo">
                     <div class="footer-logo-badge">
                         <span class="footer-logo-the">The Real</span>
                         <span class="footer-logo-name">RATLAMI</span>
