@@ -31,7 +31,7 @@ Allow: /images/
 Allow: /assets/
 
 # Important pages for SEO
-Allow: /the_real_ratlami_clean.html
+Allow: /index.html
 Allow: /inquiry.html
 
 # Specify user agents for specific rules
