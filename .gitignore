@@ -1,19 +1,28 @@
-node_modules/
-build/
-dist/
-coverage/
+# OS and editor files
 .DS_Store
-*.log
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
 
-# Environment variables
+# IDE settings
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
+.tmp/
+temp/
+
+# Build artifacts
+dist/
+build/
+node_modules/
+
+# Secrets & Environment variables
 .env
 .env.*
-!.env.example
-
-# Additional security: prevent committing sensitive files
+secrets/
 *.pem
 *.key
-*.secret
-secrets/
-credentials.json
-token.json

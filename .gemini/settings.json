@@ -1,0 +1,20 @@
+{
+  "cleanOnCompletion": true,
+  "cleanupPatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "**/*.log",
+    "**/*.tmp",
+    ".tmp/**",
+    "src/**",
+    "tsconfig.json",
+    "vite.config.*",
+    "server.ts",
+    "*.skill"
+  ],
+  "projectType": "static-html",
+  "rules": [
+    ".gemini/rules/cleanup-rules.md"
+  ]
+}

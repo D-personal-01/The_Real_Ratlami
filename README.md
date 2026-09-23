@@ -1,20 +1,27 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# The Real Ratlami - Official Website
 
-# Run and deploy your AI Studio app
+> **India Ka Desi Thanda** — Authentic Indian sparkling sodas blending traditional roasted spices, fruit punch, and invigorating fizz.
 
-This contains everything you need to run your app locally.
+## Overview
+This repository contains the official, lightweight, responsive static HTML/CSS/JavaScript website for **The Real Ratlami** beverage brand by Swad Beverages.
 
-View your app in AI Studio: https://ai.studio/apps/e30d6464-545a-4fda-a160-e61d4fae43fc
+## Page Structure
+- **`index.html`** — Main landing page featuring the hero section, signature flavours gallery, quality pillars, and footer.
+- **`about.html`** — Brand heritage, story, and values from Ratlam, Madhya Pradesh.
+- **`factory-address.html`** — Factory facility location, details, and directions.
+- **`inquiry.html`** — B2B dealership, distributorship, and wholesale inquiry form.
+- **`product-zeera.html`** — Ratlami Zeera (Classic Cumin Soda).
+- **`product-nimbu-masala.html`** — Ratlami Nimbu Masala (Chatpata Lemon Soda).
+- **`product-blueberry.html`** — Ratlami Blueberry (Sparkling Berry Punch).
+- **`product-lychee.html`** — Ratlami Lychee (Still Fruit Drink).
+- **`product-mojito.html`** — Ratlami Mojito (Fresh Lime & Mint Soda).
+- **`terms-and-conditions.html`** — Legal terms, disclaimers, and privacy policy.
+- **`seo-hub.html`**, **`sitemap.xml`**, **`robots.txt`** — Search engine optimization configurations.
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Running Locally
+This website runs directly in any modern browser without build steps or runtime dependencies:
+1. Open `index.html` directly in your web browser, OR
+2. Serve using any simple static web server:
+   ```bash
+   python -m http.server 8080
+   ```
