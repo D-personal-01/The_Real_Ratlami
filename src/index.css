@@ -1,27 +1,248 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
-@import "tailwindcss";
+/* ==========================================================================
+   THE REAL RATLAMI - DESIGN SYSTEM & TOKENS
+   Sampled directly from client reference design with WCAG AA compliance
+   ========================================================================== */
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --color-brand-lime: rgb(142, 204, 9);
-  --color-brand-lime-hover: rgb(122, 179, 6);
-  --color-brand-lime-light: rgba(142, 204, 9, 0.1);
-  --color-brand-lime-border: rgba(142, 204, 9, 0.25);
+:root {
+  /* Studio Warm Palette */
+  --color-hero-bg: #E18764;
+  --color-hero-bg-light: #EB9977;
+  --color-hero-bg-deep: #CD704C;
+  --color-hero-text: #FFFFFF;
+  --color-hero-subtext: rgba(255, 255, 255, 0.92);
+
+  /* Cream & Bisque Surfaces */
+  --color-bg-base: #FAF5ED;
+  --color-bg-warm: #F6EFE5;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-hover: #FCF9F5;
+
+  /* Brand Accents */
+  --color-brand-green: #7BC618;
+  --color-brand-green-hover: #67AB10;
+  --color-brand-yellow: #F7D417;
+
+  /* Button Colors (Pixel-Sampled) */
+  --color-btn-navy: #1A2C42;
+  --color-btn-navy-hover: #0E1D2E;
+  --color-btn-terracotta: #C26845;
+  --color-btn-terracotta-hover: #AB5634;
+
+  /* Text Hierarchy */
+  --color-text-primary: #141B22;
+  --color-text-secondary: #4A5565;
+  --color-text-muted: #738092;
+  --color-border-subtle: rgba(20, 27, 34, 0.08);
+  --color-border-medium: rgba(20, 27, 34, 0.16);
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(20, 27, 34, 0.05);
+  --shadow-md: 0 8px 24px rgba(20, 27, 34, 0.08);
+  --shadow-lg: 0 16px 40px rgba(20, 27, 34, 0.12);
+  --shadow-bottle: 0 20px 35px rgba(30, 20, 10, 0.22);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Fluid Spacing */
+  --container-max: 1240px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  --transition-smooth: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base custom utility transitions */
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
+/* Base Reset & Prevent Horizontal Overflow */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.55;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+}
+
+/* Accessibility: Keyboard Focus */
+:focus-visible {
+  outline: 2px solid var(--color-btn-navy);
+  outline-offset: 3px;
+}
+
+/* Utility Containers */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 48px);
+  padding-right: clamp(16px, 4vw, 48px);
+}
+
+/* Pill Buttons */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-smooth);
+}
+
+.btn-pill-navy {
+  background-color: var(--color-btn-navy);
+  color: #FFFFFF;
+}
+
+.btn-pill-navy:hover {
+  background-color: var(--color-btn-navy-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(26, 44, 66, 0.28);
+}
+
+.btn-pill-terracotta {
+  background-color: var(--color-btn-terracotta);
+  color: #FFFFFF;
+}
+
+.btn-pill-terracotta:hover {
+  background-color: var(--color-btn-terracotta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(194, 104, 69, 0.32);
+}
+
+.btn-pill-outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1.5px solid var(--color-border-medium);
+}
+
+.btn-pill-outline:hover {
+  background-color: var(--color-bg-card);
+  border-color: var(--color-btn-navy);
+}
+
+/* Section Headings */
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+/* Touch Target Minimum (R-03 / antislop-layoutmobile) */
+button, a, input, select {
+  touch-action: manipulation;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4B8A6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9E917F;
+}
+
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #141B22;
+  color: #FFFFFF;
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(20, 27, 34, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 400;
+  animation: toastSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@keyframes toastSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.toast-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--color-brand-green);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.toast-view-cart-btn {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--transition-smooth);
+}
+
+.toast-view-cart-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 480px) {
+  .toast-notification {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: space-between;
   }
 }
